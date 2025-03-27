@@ -6,10 +6,10 @@ import com.AirbnbClone.AirbnbClone.Entity.User;
 import com.AirbnbClone.AirbnbClone.Repository.PropertyRepository;
 import com.AirbnbClone.AirbnbClone.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PropertyService {
@@ -33,10 +33,17 @@ public class PropertyService {
 
     //get properties
 
-    public List<Property> getProperty()
+    public List<Property> getProperties()
     {
         return propertyRepository.findAll();
     }
+
+    //get property by id
+    public Optional<Property> getPropertyById(Long id)
+    {
+        return propertyRepository.findById(id);
+    }
+
 }
 
 

@@ -43,13 +43,22 @@ public class BookingService {
     }
 
     //get All the bookings.
-    public List<Booking> getAllbookings(Long propertyId)
+    public List<Booking> getAllbookings()
     {
         return bookingRepository.findAll();
     }
 
+    //get booking by Id
+
+    public Booking getBookingById(Long Id)
+    {
+        return bookingRepository.findById(Id)
+                .orElseThrow(()-> new RuntimeException ("Booking not found"));
+    }
+
+
     //get booking by propertyId
-    public List<Booking> getBookingByProperty(Long propertyId)
+    public List<Booking> getBookingsByProperty(Long propertyId)
     {
         return bookingRepository.findByPropertyById(propertyId);
     }
